@@ -1,9 +1,0 @@
-/home/austin/Documents/GameControllerLib/lib/GameControllerLib/obj/Debug/netstandard2.0/GameControllerLib.csprojAssemblyReference.cache
-/home/austin/Documents/GameControllerLib/lib/GameControllerLib/obj/Debug/netstandard2.0/GameControllerLib.csproj.CoreCompileInputs.cache
-/home/austin/Documents/GameControllerLib/lib/GameControllerLib/obj/Debug/netstandard2.0/GameControllerLib.AssemblyInfoInputs.cache
-/home/austin/Documents/GameControllerLib/lib/GameControllerLib/obj/Debug/netstandard2.0/GameControllerLib.AssemblyInfo.cs
-/home/austin/Documents/GameControllerLib/lib/GameControllerLib/bin/Debug/netstandard2.0/GameControllerLib.deps.json
-/home/austin/Documents/GameControllerLib/lib/GameControllerLib/bin/Debug/netstandard2.0/GameControllerLib.dll
-/home/austin/Documents/GameControllerLib/lib/GameControllerLib/bin/Debug/netstandard2.0/GameControllerLib.pdb
-/home/austin/Documents/GameControllerLib/lib/GameControllerLib/obj/Debug/netstandard2.0/GameControllerLib.dll
-/home/austin/Documents/GameControllerLib/lib/GameControllerLib/obj/Debug/netstandard2.0/GameControllerLib.pdb
