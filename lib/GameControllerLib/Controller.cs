@@ -17,9 +17,12 @@ namespace GameControllerLib
     	private Dictionary<int, List<IButtonListener>> Buttons { get; set; }
     	private Dictionary<int, List<IAnalogListener>> Analogs { get; set; }
 
-    	Controller(IInputReader reader)
+    	public Controller(IInputReader reader)
     	{
     		Reader = reader;
+
+            Buttons = new Dictionary<int, List<IButtonListener>>();
+            Analogs = new Dictionary<int, List<IAnalogListener>>();
 
             // This might be hard to unit test
             InputThread = new Thread(this.ReadInput);
@@ -29,6 +32,7 @@ namespace GameControllerLib
     	// Runs in its own thread
     	private void ReadInput()
     	{
+            Console.WriteLine("Reader Thread Started.");
             // The input for this could be threaded instead
             //  I really want to avoid having to poll the 
             //  controller so that it updates its input.
@@ -43,12 +47,18 @@ namespace GameControllerLib
     		while(true)
     		{
     			Input input = Reader.Read();
-    			ApplyInput(input);
+
+                if (input != null)
+                {
+    			     ApplyInput(input);
+                }
     		}
     	}
 
     	private void ApplyInput(Input i)
     	{
+            if (i == null) { return; }
+
     		if (i.Type == InputTypes.ANALOG) 
     		{
                 List <IAnalogListener> listenerList = null;

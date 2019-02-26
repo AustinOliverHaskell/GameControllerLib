@@ -3,7 +3,8 @@ namespace GameControllerLib.InputReaders
 	public enum InputTypes
 	{
 		ANALOG,
-		DIGITAL
+		DIGITAL,
+		UNKNOWN
 	}
 
 	public class Input
@@ -19,6 +20,24 @@ namespace GameControllerLib.InputReaders
 			Value = v;
 			Id = i;
 			Type = y;
+		}
+
+		public static InputTypes ConvertByteToType(byte b)
+		{
+			switch (b)
+			{
+				case 1: 
+					return InputTypes.DIGITAL;
+				case 2:
+					return InputTypes.ANALOG;
+				default:
+					return InputTypes.UNKNOWN;
+			}
+		}
+
+		public override string ToString()
+		{
+			return "Time: " + Timestamp + "  Value: " + Value + "  ID: " + Id + "  Type: " + Type.ToString("g");
 		}
 	}
 }
