@@ -71,7 +71,7 @@ namespace GameControllerLib
         				//  two different inputs. Doesnt apply here as 
         				//  this is an abstraction but getting these 
         				//  values will be tricky.
-    				    listener.OnChange(i.Value, i.Value);
+    				    listener.OnChange(i.Value);
                     }
     			}
     		}
@@ -111,7 +111,7 @@ namespace GameControllerLib
     		}
     	}
 
-		public void AddJoystickListener(IAnalogListener analogListener, int analogID)
+		public void AddAnalogListener(IAnalogListener analogListener, int analogID)
 		{
             List<IAnalogListener> value = null;
 			if(Analogs.TryGetValue(analogID, out value))
