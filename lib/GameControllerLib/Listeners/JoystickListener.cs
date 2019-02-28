@@ -15,6 +15,9 @@ namespace GameControllerLib.Listeners.Interfaces
 		protected int X { get; set; }
 		protected int Y { get; set; }
 
+		public int XId { get; private set; }
+		public int YId { get; private set; }
+
 		// These joystick IDs will need to be abstracted, I cant think of a scnario where
 		//  you would want to listen to two axies on different joysticks
 		public JoystickListener(int xAxisID, int yAxisID)
@@ -23,6 +26,9 @@ namespace GameControllerLib.Listeners.Interfaces
 			//  consumer of this API
 			XListener = new JoystickUpdater(Joystick.Horizontal, this);
 			YListener = new JoystickUpdater(Joystick.Vertical, this);
+
+			XId = xAxisID;
+			YId = yAxisID;
 		}
 
 		public void UpdateAxis(Joystick j, int value)

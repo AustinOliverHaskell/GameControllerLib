@@ -36,7 +36,19 @@ namespace example
             controller.AddButtonListener(new PrintingTest("Share"), PS4.Share);
             controller.AddButtonListener(new PrintingTest("Options"), PS4.Options);
 
-            
+            // The "Triggers" (R2 and L2) have both an analog component and a digital one, the 
+            //  digital one acts just like the buttons above.
+            controller.AddAnalogListener(new PrintingTest("R2 "), PS4.R2Analog);
+            controller.AddAnalogListener(new PrintingTest("L2 "), PS4.L2Analog);
+            controller.AddButtonListener(new PrintingTest("R2 "), PS4.R2);
+            controller.AddButtonListener(new PrintingTest("L2 "), PS4.L2);
+
+            controller.AddJoystickListener(new PrintingJoystickTest("Right Joystick ", PS4.RightJoystickHorizontal, PS4.RightJoystickVertical));
+            controller.AddJoystickListener(new PrintingJoystickTest("Left Joystick ", PS4.LeftJoystickHorizontal, PS4.LeftJoystickVertical));
+
+            // DPad comes in as a analog signal
+            controller.AddJoystickListener(new PrintingJoystickTest("Directional Pad: ", PS4.DPadHorizontal, PS4.DPadVertical));
+
 
             while(true)
             {
@@ -68,6 +80,20 @@ namespace example
 		{
 			Console.WriteLine(Message + "[" + val + "]");
 		}
+    }
 
+    public class PrintingJoystickTest : JoystickListener
+    {
+        private string Message { get; set; }
+
+        public PrintingJoystickTest(string message, int Xid, int Yid) : base(Xid, Yid)
+        {
+            Message = message;
+        }
+
+        public override void OnChange(int x, int y)
+        {
+            Console.WriteLine(Message + "[ " + x + ", " + y + " ]");
+        }
     }
 }

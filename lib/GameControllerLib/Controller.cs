@@ -126,5 +126,11 @@ namespace GameControllerLib
     		}
 		}
 
+        public void AddJoystickListener(JoystickListener listener)
+        {
+            AddAnalogListener(listener.XListener, listener.XId);
+            AddAnalogListener(listener.YListener, listener.YId);
+        }
+
     }
 }
